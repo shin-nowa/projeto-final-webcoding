@@ -1,0 +1,456 @@
+/* ========== CSS Custom Properties (Variáveis) ========== */
+/* Em :root no seu global.css */
+:root {
+    --primary-color: #4a90e2;
+    --primary-color-rgb: 74, 144, 226; /* Componentes R,G,B de #4a90e2 */
+    --primary-color-dark: #357abd;  /* CORRIGIDO/ADICIONADO: Tom mais escuro de --primary-color */
+    --text-color-muted: #888888; 
+
+    --secondary-color: #1a202c;
+    --accent-color: #63b3ed;        /* CORRIGIDO/ADICIONADO: Usada no hover de links do header, etc. */
+
+    --surface-color: #ffffff;
+    --background-color: #f4f7f9;
+
+    --text-color: #333333;
+    --text-color-light: #e2e8f0;
+    --text-color-light-rgb: 226, 232, 240; /* CORRIGIDO/ADICIONADO: RGB de --text-color-light */
+
+    --success-color: #48bb78;
+    --error-color: #e53e3e;
+    --danger-color: #dc3545;        /* CORRIGIDO/ADICIONADO: Para botões de exclusão */
+    --danger-color-dark: #c82333;   /* CORRIGIDO/ADICIONADO: Tom mais escuro de --danger-color */
+
+    --border-radius: 5px;
+    --input-border-color: #ccc;
+    --input-disabled-bg: #f0f0f0;
+
+    --box-shadow-light: 0 2px 4px rgba(0,0,0,0.05);    /* CORRIGIDO/ADICIONADO */
+    --box-shadow-medium: 0 4px 8px rgba(0,0,0,0.1);   /* CORRIGIDO/ADICIONADO */
+
+    /* Adicione sua variável de fonte base aqui (exemplo) */
+    --font-family-base: 'Arial', sans-serif; /* << DEFINA A FONTE QUE VOCÊ QUER USAR */
+
+    --header-height: 60px; /* CORRIGIDO/ADICIONADO: Altura do header, ajuste se precisar */
+}
+
+/* E no estilo de foco dos inputs no global.css, use a variável RGB: */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25); /* CORRIGIDO: Usar --primary-color-rgb */
+    outline: none;
+}
+/* ========== Reset Básico & Estilos Globais do Body ========== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: var(--header-height); /* Compensa o header fixo */
+    font-family: var(--font-family-base);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o footer fique no final em páginas com pouco conteúdo */
+}
+
+main {
+    flex-grow: 1; /* Faz o conteúdo principal crescer para empurrar o footer para baixo */
+    padding-bottom: 2rem; /* Espaço antes do footer */
+}
+
+/* ========== Tipografia ========== */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--secondary-color);
+    margin-bottom: 0.75em;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color-dark);
+    text-decoration: underline;
+}
+
+/* ========== Container Principal (Opcional, mas útil) ========== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* ========== Cabeçalho (Header) ========== */
+header {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    height: var(--header-height);
+    padding: 0 15px; /* Padding lateral menor para header fixo */
+    box-shadow: var(--box-shadow-medium);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.headerContainer {
+    width: 100%;
+    max-width: 1200px; /* Ou seu container max-width padrão */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-placeholder .site-logo-link {
+    color: var(--text-color-light);
+    font-weight: bold;
+    font-size: 1.5rem; /* Ajuste conforme necessário */
+    text-decoration: none;
+}
+.logo-placeholder img {
+    max-height: calc(var(--header-height) - 20px); /* Exemplo: logo com padding */
+    width: auto;
+    display: block;
+}
+
+.navigation-links {
+    display: flex;
+    gap: 5px; /* Espaçamento entre os items dos links */
+}
+
+.navigation-links .nav-link {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.6rem 0.9rem; /* Padding para área de clique */
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: inline-block; /* Para padding funcionar corretamente */
+    line-height: 1.2;
+}
+
+.navigation-links .nav-link:hover,
+.navigation-links .nav-link.active {
+    color: var(--accent-color);
+    background-color: rgba(var(--text-color-light-rgb), 0.1);
+}
+
+.hamburger-menu {
+    display: none; /* Escondido no desktop */
+    background: transparent;
+    border: none;
+    color: var(--text-color-light);
+    font-size: 1.75rem; /* Tamanho do ícone hamburger */
+    cursor: pointer;
+    padding: 0.5rem; /* Para facilitar o clique */
+    z-index: 1001; /* Para ficar acima do menu se o menu tiver z-index menor */
+}
+.nav-link.disabled-link {
+    color: var(--text-color-muted) !important; /* Cor de texto mais apagada */
+    pointer-events: none; /* Impede cliques e outros eventos do mouse */
+    cursor: default;      /* Cursor padrão, indicando não interativo */
+    background-color: transparent !important; /* Remove qualquer fundo de hover/active */
+    /* Opcional: se você usa bordas no hover/active que precisam ser removidas */
+    /* border-color: transparent !important; */
+}
+
+/* ========== Header Responsivo (Menu Hamburger) - NOVA VERSÃO ========== */
+@media (max-width: 768px) {
+    .logo-placeholder {
+        /* O logo pode precisar de ajuste de tamanho ou ser simplificado no mobile */
+        /* Exemplo: Reduzir um pouco a fonte se for texto */
+        /* .logo-placeholder .site-logo-link { font-size: 1.2rem; } */
+    }
+
+    .navigation-links {
+        display: none; /* Esconde a navegação principal */
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height); /* Posiciona abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color); /* Fundo do menu dropdown */
+        padding: 0;
+        box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+        border-top: 1px solid rgba(var(--text-color-light-rgb), 0.15);
+    }
+
+    .navigation-links.active { /* Classe adicionada via JS para mostrar o menu */
+        display: flex;
+    }
+
+    .navigation-links .nav-link {
+        padding: 0.9rem 20px; /* Padding maior para toque */
+        text-align: left;
+        border-bottom: 1px solid rgba(var(--text-color-light-rgb), 0.1);
+        width: 100%;
+        border-radius: 0; /* Remove borda arredondada no mobile */
+    }
+    .navigation-links .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    .navigation-links .nav-link:hover,
+    .navigation-links .nav-link.active {
+        background-color: rgba(var(--text-color-light-rgb), 0.15);
+        color: var(--accent-color); /* Mantém cor de destaque no hover/ativo */
+    }
+
+    .hamburger-menu {
+        display: block; /* Mostra o botão hamburger */
+    }
+}
+
+/* ========== Rodapé (Footer) ========== */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Empurra o footer para o final da página */
+}
+
+/* ========== Botões ========== */
+.btn, button, input[type="submit"], input[type="button"] {
+    display: inline-block;
+    padding: 10px 24px; /* Aumentado o padding horizontal */
+    font-size: 1rem; /* Mantenha ou ajuste se necessário */
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.3s ease; /* Adicionada transição para border-color */
+    border: 1px solid transparent;
+    white-space: nowrap; /* Impede que o texto do botão quebre em várias linhas */
+    line-height: 1.5; /* Ajusta a altura da linha para melhor aparência vertical do texto */
+    min-width: 100px; /* Opcional: define uma largura mínima para botões pequenos */
+}
+
+.btn-primary, button.cadastrar, button.logar, button.salvar-edicao, #btnSave, #btnSavePassword {
+    background-color: var(--primary-color);
+    color: var(--surface-color); /* Normalmente branco */
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover, button.cadastrar:hover, button.logar:hover, button.salvar-edicao:hover, #btnSave:hover, #btnSavePassword:hover {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-light);
+}
+
+.btn-secondary, button.cadastro, button.loginButton, button.cancelar-edicao, #btnEdit, #btnPasswordEdit {
+    background-color: var(--surface-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover, button.cadastro:hover, button.loginButton:hover, button.cancelar-edicao:hover, #btnEdit:hover, #btnPasswordEdit:hover {
+    background-color: var(--primary-color-dark);
+    color: var(--surface-color);
+    border-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-light);
+}
+
+/* Para botões de perfil e listagem no login.html se forem estilizados como botões secundários */
+button.perfil, button.listagem {
+    background-color: #6c757d; /* Cor cinza para botões menos proeminentes */
+    color: var(--surface-color);
+    border-color: #6c757d;
+}
+button.perfil:hover, button.listagem:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+
+/* ========== Formulários ========== */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"], /* Adicionando inputmode="numeric" como text, mas number é mais semântico */
+input[type="search"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color), 0.25); /* Simula o efeito de foco do Bootstrap */
+    outline: none;
+}
+
+/* Estilo para as mensagens de erro (classe .erro de cadastro.html e login.html) */
+.erro, .feedback-message.error {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    display: block; /* Garante que o span ocupe a linha */
+    margin-top: 0.25rem;
+    min-height: 1em; /* Para evitar que o layout pule quando o texto some */
+}
+
+.feedback-message.success {
+    color: var(--success-color);
+    font-size: 0.875rem;
+    display: block;
+    margin-top: 0.25rem;
+}
+/* ========== Invólucro para Formulários Estreitos ========== */
+.form-wrapper {
+    max-width: 450px; /* Define uma largura máxima mais apropriada para formulários */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: var(--surface-color, #ffffff); /* Usa a cor de superfície ou branco */
+    border-radius: var(--border-radius, 5px);
+    box-shadow: var(--box-shadow-medium, 0 4px 8px rgba(0,0,0,0.1));
+    margin-top: 2rem; /* Espaço acima do formulário */
+    margin-bottom: 2rem; /* Espaço abaixo do formulário */
+}
+
+/* Ajuste opcional para inputs dentro do form-wrapper, caso ainda precise de ajustes finos */
+.form-wrapper input[type="text"],
+.form-wrapper input[type="password"],
+.form-wrapper input[type="email"],
+.form-wrapper input[type="number"],
+.form-wrapper input[type="search"],
+.form-wrapper select,
+.form-wrapper textarea {
+    /* Geralmente, o width: 100% herdado do global.css para inputs funcionará bem aqui,
+       fazendo o input ocupar 100% da largura do .form-wrapper (que é 450px no máximo) */
+}
+
+/* Se os botões dentro do form-wrapper precisarem ocupar largura total */
+.form-wrapper .btn,
+.form-wrapper button {
+    /* descomente a linha abaixo se quiser botões de largura total DENTRO do form-wrapper */
+    /* width: 100%; */
+    /* margin-top: 0.5rem; */ /* Espaçamento entre botões se forem de largura total */
+}
+
+
+/* ========== Responsividade Básica para Header ========== */
+@media (max-width: 768px) {
+
+    .headerContainer {
+        /* display: flex; justify-content: space-between; align-items: center;
+           Estas propriedades já devem estar definidas na regra base do .headerContainer.
+           Garantimos que elas permaneçam para o mobile. */
+        flex-wrap: nowrap; /* Importante para garantir que não quebrem linha por padrão */
+    }
+
+    .logo-placeholder {
+        flex-grow: 0;      /* Não deve crescer para preencher espaço */
+        flex-shrink: 1;    /* Permite encolher se necessário */
+        margin-right: 10px; /* Espaço entre o logo e o hamburger */
+        overflow: hidden;         /* Esconde o que transbordar */
+        text-overflow: ellipsis;  /* Adiciona "..." se o texto for muito longo */
+        white-space: nowrap;      /* Impede que o texto do logo quebre linha */
+        min-width: 50px; /* Garante um espaço mínimo, ajuste se precisar */
+    }
+
+    .logo-placeholder .site-logo-link {
+        font-size: 1.2rem; /* Fonte um pouco menor para o logo no mobile para economizar espaço */
+        /* Outros estilos do site-logo-link já definidos aplicarão */
+    }
+
+    .hamburger-menu {
+        display: block; /* Já deve estar assim, mas para confirmar */
+        flex-shrink: 0; /* Impede que o botão hamburger encolha */
+    }
+
+    .navigation-links {
+        display: none; /* Esconde a navegação principal */
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color);
+        padding: 0;
+        box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+        border-top: 1px solid rgba(var(--text-color-light-rgb), 0.15);
+        z-index: 999; /* Abaixo do header que tem z-index 1000 */
+    }
+
+    .navigation-links.active {
+        display: flex;
+    }
+
+    .navigation-links.active .nav-link {
+        padding: 0.9rem 20px;
+        text-align: left;
+        border-bottom: 1px solid rgba(var(--text-color-light-rgb), 0.1);
+        width: 100%;
+        border-radius: 0;
+        color: var(--text-color-light);
+        text-decoration: none;
+    }
+    .navigation-links.active .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    .navigation-links.active .nav-link:hover,
+    .navigation-links.active .nav-link.active {
+        background-color: rgba(var(--text-color-light-rgb), 0.15);
+        color: var(--accent-color);
+        text-decoration: none;
+    }
+}

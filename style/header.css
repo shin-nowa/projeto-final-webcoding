@@ -1,0 +1,24 @@
+@import url(./fonts.css); 
+
+a:visited{color: inherit}
+body{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    background-color: whitesmoke;
+}
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 9vh;
+  background-color: orangered;
+}
+
+.esquerda a {
+  font-size: 1.8rem;
+  color: white;
+  margin-right: 2rem;
+  text-decoration: none;
+  align-items: center;
+}

@@ -1,0 +1,110 @@
+@import url('./fonts.css');
+*/
+
+h1 {
+    text-align: center;
+    color: var(--secondary-color); /* Usa cor de título global */
+    margin-bottom: 1.5rem; /* Ajuste de margem */
+}
+
+.search-container {
+    margin-bottom: 1.5rem;
+    display: flex; /* Para centralizar o input se ele não for width: 100% */
+    justify-content: center;
+}
+
+/* Input de busca (#search-input) herdará estilos do global.css.
+   Você pode adicionar ajustes específicos aqui se necessário: */
+#search-input {
+    padding: 10px; /* global.css já define isso, mas pode ajustar */
+    /* width: 50%; */ /* Exemplo: se não quiser largura total */
+    /* max-width: 400px; */
+    /* border-radius: var(--border-radius); */ /* Já vem do global */
+    /* border: 1px solid var(--input-border-color); */ /* Já vem do global */
+}
+
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Permite rolagem horizontal da tabela em telas pequenas */
+    margin-bottom: 2rem;
+    border: 1px solid var(--input-border-color, #ddd); /* Borda sutil em volta da área da tabela */
+    border-radius: var(--border-radius);
+}
+
+table#user-list {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaço entre bordas das células */
+    /* margin: 20px 0; */ /* Removido, .table-responsive pode ter margem */
+    /* box-shadow: 0 2px 3px rgba(0,0,0,0.1); */ /* Removido, .table-responsive pode ter sombra */
+}
+
+table#user-list thead {
+    background-color: var(--secondary-color); /* Cor escura global para cabeçalho da tabela */
+    color: var(--text-color-light); /* Texto claro global */
+}
+
+table#user-list th, table#user-list td {
+    padding: 12px 15px; /* Ajuste de padding */
+    text-align: left;
+    border-bottom: 1px solid var(--input-border-color, #ddd); /* Linha divisória entre linhas */
+}
+
+/* Removendo bordas laterais para um visual mais limpo, mantendo apenas a inferior */
+table#user-list th, table#user-list td {
+    /* border-left: none; */
+    /* border-right: none; */
+}
+
+
+/* Linhas pares com fundo levemente diferente para legibilidade */
+table#user-list tbody tr:nth-child(even) {
+    background-color: var(--background-color); /* Cor de fundo clara global (ex: #f4f7f9) */
+}
+
+table#user-list tbody tr:hover {
+    background-color: #e9ecef; /* Cor de hover sutil, pode ser uma variável */
+}
+
+/* Estilos para os botões de ação na tabela serão aplicados via classes no JS.
+   Ex: .btn, .btn-secondary, .btn-danger */
+table#user-list td button {
+    margin-right: 5px; /* Espaçamento entre botões de ação */
+    padding: 6px 10px; /* Botões menores para tabela */
+    font-size: 0.875rem; /* Fonte menor para botões da tabela */
+}
+table#user-list td button:last-child {
+    margin-right: 0;
+}
+
+
+/* Formulário de Edição (#form-edicao) */
+/* A classe .form-wrapper já aplica estilos de container de formulário.
+   Se você usou <div id="form-edicao" class="form-wrapper">,
+   os estilos de largura, sombra, padding do .form-wrapper já se aplicam.
+   Você pode adicionar ou sobrescrever estilos específicos para #form-edicao aqui se necessário. */
+#form-edicao {
+    /* background-color: var(--surface-color); */ /* Já vem do .form-wrapper */
+    /* padding: 20px; */ /* Já vem do .form-wrapper */
+    /* border-radius: var(--border-radius); */ /* Já vem do .form-wrapper */
+    /* box-shadow: var(--box-shadow-medium); */ /* Já vem do .form-wrapper */
+    /* margin-top: 20px; */ /* Pode ajustar */
+}
+
+#form-edicao h2 {
+    text-align: center; /* Já deve ser herdado do .form-wrapper se ele tiver text-align:center */
+    color: var(--secondary-color); /* Cor de título global */
+    margin-bottom: 1.5rem;
+}
+
+/* Labels e inputs dentro de #form-edicao devem herdar de .form-group e estilos globais de input */
+/* A estrutura HTML foi ajustada para usar .form-group */
+
+/* Botões Salvar/Cancelar no formulário de edição */
+/* Classes .btn .btn-primary e .btn .btn-secondary já foram aplicadas no HTML */
+.button-group-edit {
+    display: flex;
+    justify-content: flex-end; /* Alinha botões à direita */
+    gap: 10px; /* Espaço entre botões */
+    margin-top: 1.5rem;
+}

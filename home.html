@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CriptoSite - Home</title>
+    <link rel="stylesheet" href="./style/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <main>
+    <header>
+            <div class="headerContainer">
+<div class="logo-placeholder">
+    <a href="./home.html" class="site-logo-link">
+        <img src="./assets/logo.png" alt="CriptoSite Logo">
+    </a>
+</div>
+
+                <nav class="navigation-links" id="navigationLinks">
+                    <a href="./listagem.html" class="nav-link">Listagem</a>
+                <a href="./login.html" class="nav-link" id = "navLogin">Login</a>
+                <a href="./cadastro.html" class="nav-link" id = "navCadastro">Cadastro</a>
+                <a href="./perfil.html" class="nav-link" id = "navPerfil">Perfil</a>
+                </nav>
+
+                <button class="hamburger-menu" id="hamburgerMenu" aria-label="Abrir menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i> </button>
+            </div>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Bem-vindo ao CriptoSite</h1>
+                <p>Sua plataforma para acompanhar o universo das criptomoedas.</p>
+                <a href="./cadastro.html" class="btn btn-primary">Comece Agora</a>
+                <a href="./consumoAPI/index.html" class="btn btn-secondary">Ver Cotações</a>
+            </div>
+        </section>
+
+        <section id="crypto-tickers" class="crypto-tickers-section">
+            <h2>Cotações Atuais</h2>
+            <div class="tickers-grid">
+                <div class="ticker-item">
+                    <div class="crypto-icon"><i class="fab fa-bitcoin"></i></div>
+                    <div class="crypto-info">
+                        <h3>Bitcoin (BTC)</h3>
+                        <p class="crypto-price" id="btc-price">Carregando...</p>
+                    </div>
+                </div>
+                <div class="ticker-item">
+                    <div class="crypto-icon"><i class="fab fa-ethereum"></i></div>
+                    <div class="crypto-info">
+                        <h3>Ethereum (ETH)</h3>
+                        <p class="crypto-price" id="eth-price">Carregando...</p>
+                    </div>
+                </div>
+                <div class="ticker-item">
+                    <div class="crypto-icon"><i class="fas fa-coins"></i></div>
+                    <div class="crypto-info">
+                        <h3>Cardano (ADA)</h3>
+                        <p class="crypto-price" id="ada-price">Carregando...</p>
+                    </div>
+                </div>
+                 </div>
+            <p class="api-attribution">Cotações fornecidas por CoinGecko API.</p>
+        </section>
+
+        <section class="features-section">
+            <h2>Por que escolher o CriptoSite?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h3>Monitoramento em Tempo Real</h3>
+                    <p>Acompanhe as cotações mais recentes das principais criptomoedas.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-user-shield feature-icon"></i>
+                    <h3>Segurança e Confiança</h3>
+                    <p>Gerencie seu perfil e informações com segurança.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-newspaper feature-icon"></i>
+                    <h3>Fique Informado</h3>
+                    <p>Notícias e atualizações do mundo cripto (em breve!).</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CriptoSite. Todos os direitos reservados.</p>
+    </footer>
+
+    <script type="module" src="./script/home.js"></script>
+    <script src="./script/menu.js"></script>
+</body>
+</html>

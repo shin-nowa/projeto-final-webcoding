@@ -1,0 +1,252 @@
+/* Basic Reset & Body Styling */
+@import url('./global.css');
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9; /* Light background for contrast */
+    color: #333;
+    line-height: 1.6;
+}
+
+main {
+    overflow-x: hidden; /* Prevents horizontal scroll on some animations/layouts */
+}
+
+/* Header Styling */
+header {
+    background-color: #1a202c; /* Dark background for header */
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.headerContainer {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Adjust as needed if you add items to the right */
+    align-items: center;
+}
+
+.headerContainer .esquerda .nav-link {
+    color: #e2e8f0; /* Light gray for nav links */
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.headerContainer .esquerda .nav-link:hover,
+.headerContainer .esquerda .nav-link.active {
+    color: #63b3ed; /* A bright blue for hover/active state */
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1621452773594-1f729CF0602c?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover; /* Example background image, replace with your own or a solid color */
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin: 5px;
+}
+
+.btn-primary {
+    background-color: #4a90e2; /* Primary button color - a distinct blue */
+    color: white;
+    border: 1px solid #4a90e2;
+}
+
+.btn-primary:hover {
+    color: #333;
+    background-color: #357abd;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #333;
+    transform: translateY(-2px);
+}
+
+/* Crypto Tickers Section */
+.crypto-tickers-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff; /* White background for this section */
+}
+
+.crypto-tickers-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #1a202c; /* Dark color for heading */
+}
+
+.tickers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ticker-item {
+    background-color: #f4f7f9; /* Slightly off-white for ticker cards */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ticker-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.crypto-icon {
+    font-size: 2.5rem; /* Icon size */
+    color: #4a90e2; /* Icon color, can be specific per crypto */
+}
+
+.crypto-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.crypto-price {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #007bff; /* Price color */
+}
+
+.api-attribution {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Features Section */
+.features-section {
+    padding: 60px 20px;
+    background-color: #e9edf0; /* A slightly different light background */
+}
+
+.features-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #1a202c;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #4a90e2; /* Theme color for icons */
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #1a202c; /* Dark footer */
+    color: #e2e8f0;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px; /* Add some space above the footer */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .crypto-tickers-section h2, .features-section h2 {
+        font-size: 2rem;
+    }
+    .headerContainer .esquerda {
+        display: flex;
+        flex-direction: column; /* Stack nav links on smaller screens */
+        align-items: center;
+    }
+    .headerContainer .esquerda .nav-link {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .tickers-grid, .features-grid {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+    }
+}

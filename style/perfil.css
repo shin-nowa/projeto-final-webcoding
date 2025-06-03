@@ -1,0 +1,226 @@
+@import url('./fonts.css');
+@import url('./global.css');
+
+/* body já herda estilos do global.css */
+
+.perfil-main-content-area {
+    flex-grow: 1;
+    background-color: var(--secondary-color); /* Usa a cor escura global para o fundo desta área */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.profile-container {
+    background-color: var(--surface-color); /* Cor de superfície global (branco) */
+    border-radius: 15px; /* Pode ser var(--border-radius) ou um específico maior */
+    box-shadow: var(--box-shadow-medium, 0 4px 8px rgba(0,0,0,0.1)); /* Sombra global */
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+}
+
+.profile-header {
+    position: relative;
+    height: 150px;
+    background: var(--primary-color); /* Cabeçalho do perfil com a cor primária global */
+}
+
+.profile-avatar {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid var(--surface-color); /* Borda na cor da superfície onde está */
+    background-color: var(--background-color); /* Fundo claro global */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--box-shadow-light, 0 2px 4px rgba(0,0,0,0.05));
+    transition: transform 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.profile-avatar i {
+    font-size: 40px;
+    color: var(--primary-color); /* Ícone do avatar com a cor primária */
+    transition: color 0.3s ease;
+}
+
+.profile-info {
+    padding: 70px 30px 30px;
+    text-align: center;
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    color: var(--primary-color); /* Nome com a cor primária */
+    margin-bottom: 5px;
+}
+
+.profile-email {
+    color: var(--text-color); /* Cor de texto global */
+    opacity: 0.8; /* Levemente mais suave que o texto principal */
+    margin-bottom: 25px;
+    word-break: break-all;
+}
+
+.profile-edit-form {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.profile-edit-form.active {
+    max-height: 600px;
+    padding: 20px 0;
+}
+
+.profile-container .form-group {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color); /* Cor de texto global para labels */
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+#favorite-crypto {
+    width: 100%;
+    padding: 0.8rem; /* Pode manter padding específico ou alinhar com global (10px) */
+    border: 1px solid var(--input-border-color, #ccc); /* Usa var de borda ou fallback */
+    border-radius: var(--border-radius, 5px);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--surface-color); /* Fundo branco/superfície */
+    color: var(--text-color); /* Cor do texto do input */
+}
+
+.form-group input:focus,
+#favorite-crypto:focus {
+    border-color: var(--primary-color); /* Foco com cor primária */
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25); /* Usa o efeito de foco global */
+    outline: none;
+}
+
+.form-group input:disabled {
+    background-color: var(--input-disabled-bg, #f0f0f0); /* Usa var ou fallback para fundo desabilitado */
+    cursor: not-allowed;
+    color: var(--text-color);
+    opacity: 0.7; /* Opacidade para texto desabilitado */
+}
+
+.button-group {
+    padding: 0 30px 30px;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.profile-container button {
+    flex: 1 1 auto;
+    min-width: 150px;
+    padding: 12px; /* Mantém padding específico ou alinha com .btn global (10px 24px) */
+    border: 1px solid transparent; /* Borda transparente por padrão */
+    border-radius: var(--border-radius, 8px);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.profile-container button i {
+    font-size: 1.1rem;
+}
+
+/* Botões no perfil usarão as cores primárias/secundárias globais */
+.btn-edit,
+.btn-password,
+.btn-save { /* Agrupando botões de ação principal */
+    background-color: var(--primary-color);
+    color: var(--text-color-light); /* Texto claro para fundo primário */
+    border-color: var(--primary-color); /* Borda da mesma cor */
+}
+
+.btn-edit:hover,
+.btn-password:hover,
+.btn-save:hover {
+    background-color: var(--primary-color-dark); /* Cor primária escura no hover */
+    border-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-light, 0 2px 8px rgba(0,0,0,0.1));
+}
+
+/* Se precisar de um botão secundário (ex: Cancelar), você pode criar .btn-secondary-profile
+   ou usar a classe .btn-secondary global e ajustar se necessário. */
+
+.feedback-message {
+    padding: 12px 24px;
+    border-radius: var(--border-radius, 8px);
+    font-weight: 500;
+    z-index: 1000;
+    text-align: center;
+    width: calc(100% - 60px);
+    margin: 0 auto 15px auto;
+    box-shadow: var(--box-shadow-light, 0 2px 10px rgba(0,0,0,0.1));
+    color: var(--text-color-light); /* Texto claro para os fundos de feedback */
+}
+
+.feedback-message.success {
+    background-color: var(--success-color);
+}
+
+.feedback-message.error {
+    background-color: var(--error-color);
+}
+
+/* Media queries e animações mantêm-se como estavam, ajustando conforme necessário */
+@media (max-width: 480px) {
+    .perfil-main-content-area {
+        padding: 10px;
+    }
+    /* ...outras media queries que você já tinha... */
+    .profile-info {
+        padding: 50px 20px 20px;
+    }
+    #passwordFields {
+        padding: 0 20px 20px;
+    }
+    .button-group {
+        padding: 0 20px 20px;
+        flex-direction: column;
+    }
+    .profile-container button {
+        width: 100%;
+        min-width: auto;
+    }
+    .feedback-message {
+        width: calc(100% - 40px);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-info, .profile-container .form-group, .button-group {
+    animation: fadeIn 0.5s ease-out forwards;
+}

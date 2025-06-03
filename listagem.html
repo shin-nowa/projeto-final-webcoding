@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários - CriptoSite</title>
+    <link rel="stylesheet" href="./style/global.css">
+    <link rel="stylesheet" href="./style/listagem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> </head>
+<body>
+    <header>
+        <div class="headerContainer">
+<div class="logo-placeholder">
+    <a href="./home.html" class="site-logo-link">
+        <img src="./assets/logo.png" alt="CriptoSite Logo">
+    </a>
+</div>
+
+            <nav class="navigation-links" id="navigationLinks">
+                <a href="./listagem.html" class="nav-link">Listagem</a>
+                <a href="./login.html" class="nav-link" id = "navLogin">Login</a>
+                <a href="./cadastro.html" class="nav-link" id = "navCadastro">Cadastro</a>
+                <a href="./perfil.html" class="nav-link" id = "navPerfil">Perfil</a>
+            </nav>
+
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i> </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container page-container-listagem"> <h1>Lista de Usuários Cadastrados</h1>
+
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar por Login ou CPF...">
+            </div>
+
+            <div class="table-responsive"> <table id="user-list">
+                    <thead>
+                        <tr>
+                            <th>Login</th>
+                            <th>CPF</th>
+                            <th>Senha (Exibição não recomendada)</th>
+                            <th>Email</th>
+                            <th>Data de Registro</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+
+            <div id="form-edicao" class="form-wrapper" style="display: none; margin-top: 30px;">
+                <h2>Editar Usuário</h2>
+                <form id="editFormFields"> <div class="form-group">
+                        <label for="edit-login">Login:</label>
+                        <input type="text" id="edit-login" name="edit-login">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-cpf">CPF:</label>
+                        <input type="text" id="edit-cpf" name="edit-cpf">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-senha">Senha:</label>
+                        <input type="password" id="edit-senha" name="edit-senha">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Email:</label>
+                        <input type="email" id="edit-email" name="edit-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-data-registro">Data de Registro:</label>
+                        <input type="text" id="edit-data-registro" name="edit-data-registro">
+                    </div>
+
+                    <div class="button-group-edit">
+                        <button type="button" id="salvar-edicao" class="btn btn-primary"><i class="fas fa-save"></i> Salvar</button>
+                        <button type="button" id="cancelar-edicao" class="btn btn-secondary"><i class="fas fa-times"></i> Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 CriptoSite. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="./script/listagem.js"></script>
+    <script src="./script/menu.js"></script>
+</body>
+</html>

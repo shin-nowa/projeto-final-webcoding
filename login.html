@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./style/global.css">
+    <link rel="stylesheet" href="./style/login.css"> </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<body>
+    <header>
+        <div class="headerContainer">
+<div class="logo-placeholder">
+    <a href="./home.html" class="site-logo-link">
+        <img src="./assets/logo.png" alt="CriptoSite Logo">
+    </a>
+</div>
+
+            <nav class="navigation-links" id="navigationLinks">
+                <a href="./listagem.html" class="nav-link">Listagem</a>
+                <a href="./login.html" class="nav-link" id = "navLogin">Login</a>
+                <a href="./cadastro.html" class="nav-link" id = "navCadastro">Cadastro</a>
+                <a href="./perfil.html" class="nav-link" id = "navPerfil">Perfil</a>
+            </nav>
+
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars"></i> </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container"> <div class="form-wrapper"> <h2>Login</h2> <input type="text" class="login" id="login" placeholder="Insira seu login...">
+                <span id="erroLogin" class="erro"></span>
+
+                <input type="password" class="senha" id="senha" placeholder="Insira sua senha...">
+                <span id="erroSenha" class="erro"></span>
+                
+                <button class="logar" onclick="logar()" style="width: 100%"">Logar</button>
+                <p style="text-align: center; margin-top: 1rem;">Não tem conta?</p>
+                <a href="./cadastro.html" style="text-decoration: none;"><button type="button" class="cadastro" style="width: 100%;">Cadastre-se</button></a>
+
+                </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 CriptoSite. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="./script/login.js"></script>
+    <script src="./script/menu.js"></script>
+</body>
+</html>
